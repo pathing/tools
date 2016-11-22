@@ -4,7 +4,7 @@ import sys
 import pexpect
 
 # Usage:
-#    create_cert_key.py <Server addr(ip or domain)> <client addr(ip or domain)>
+#    create_cert_key.py <Server addr(server ip or domain name)>
 
 
 PHRASE = '123456'  # Password
@@ -15,7 +15,6 @@ ON = 'yuxian'  # Organization Name
 OUN = 'yuxian'  # Organizational Unit Name
 KEY_LENGTH = 2048  # Key length
 COMMON_NAME = sys.argv[1] # Server addr
-CLIENT_ADDR = sys.argv[2] # Client addr
 
 cmd = [
     # Generate CA
@@ -66,7 +65,7 @@ answer = [
     [PHRASE, CN, STATE, CITY, ON, OUN, COMMON_NAME, '', '', ''],
     [PHRASE],
     [PHRASE],
-    [PHRASE, CN, STATE, CITY, ON, OUN, CLIENT_ADDR, '', '', ''],
+    [PHRASE, CN, STATE, CITY, ON, OUN, '', '', '', ''],
     [PHRASE],
     [],
     [],
